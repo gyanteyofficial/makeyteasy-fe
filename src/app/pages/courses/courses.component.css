@@ -569,6 +569,25 @@
 .rating-num { font-weight: 700; color: #333; }
 .rating-count { color: #999; }
 
+.btn-buy-now {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 0;
+  background: #FF0000;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.btn-buy-now:hover {
+  background: #cc0000;
+}
+
 /* ===== FEATURES STRIP ===== */
 .features-strip {
   background: #fafafa;
