@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+
+<div class="mc-page">
+  <!-- Hero -->
+  <div class="mc-hero">
+    <div class="mc-hero-left">
+      <h1>My Courses</h1>
+      <p>Access and continue learning from your courses.</p>
+    </div>
+    <div class="mc-hero-illus">
+      <!-- Stack of books + graduation cap + YouTube logo -->
+      <div class="mc-yt-logo">
+        <svg width="64" height="44" viewBox="0 0 64 44" fill="none"><rect width="64" height="44" rx="8" fill="#FF0000"/><polygon points="24,12 24,32 46,22" fill="white"/></svg>
+      </div>
+      <div class="mc-grad-cap">
+        <div class="mc-cap-board"></div>
+        <div class="mc-cap-top"></div>
+        <div class="mc-cap-tassel"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="mc-tabs">
+    <button class="mc-tab" [class.active]="activeTab()==='all'" (click)="setTab('all')">All Courses</button>
+    <button class="mc-tab" [class.active]="activeTab()==='completed'" (click)="setTab('completed')">Completed</button>
+  </div>
+
+  <!-- Course List -->
+  <div class="mc-list">
+    @if (filtered.length === 0) {
+      <div class="mc-empty">No courses here yet.</div>
+    }
+    @for (c of filtered; track c.id) {
+      <div class="mc-row">
+        <div class="mc-thumb" [class]="'mc-thumb-' + c.thumb">
+          <svg width="36" height="25" viewBox="0 0 36 25" fill="none"><rect width="36" height="25" rx="5" fill="#FF0000"/><polygon points="14,7 14,18 25,12.5" fill="white"/></svg>
+        </div>
+        <div class="mc-info">
+          <p class="mc-course-title">{{ c.title }}</p>
+          <span class="mc-course-meta">{{ c.lessons }} Lessons · {{ c.hours }} Hours</span>
+          @if (c.started) {
+            <div class="mc-progress-wrap">
+              <div class="mc-progress-bar"><div class="mc-progress-fill" [style.width.%]="c.progress"></div></div>
+              <span class="mc-progress-pct">{{ c.progress }}%</span>
+            </div>
+          }
+        </div>
+        <a routerLink="/course/1" class="mc-action-btn" [class.continue]="c.started">
+          {{ c.started ? 'Continue Learning' : 'Start Learning' }}
+        </a>
+      </div>
+    }
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
 
@@ -18,7 +19,7 @@ interface Course {
 
 @Component({
   selector: 'app-courses',
-  imports: [NavbarComponent, FooterComponent],
+  imports: [NavbarComponent, FooterComponent, RouterLink],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.css'
 })

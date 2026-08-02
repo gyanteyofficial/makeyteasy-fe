@@ -1,0 +1,86 @@
+<app-navbar></app-navbar>
+
+<div class="ck-page">
+  <div class="ck-header-row">
+    <h1 class="ck-title">Checkout</h1>
+    <span class="ck-secure">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L2 3.5v4C2 10.5 4.5 12.8 7 13c2.5-.2 5-2.5 5-5.5v-4L7 1z" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="1.3"/><path d="M5 7l1.5 1.5L9 5.5" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Secure Checkout
+    </span>
+  </div>
+
+  <div class="ck-grid">
+    <!-- Order Summary -->
+    <div class="ck-summary">
+      <h2>Order Summary</h2>
+
+      <div class="ck-course-row">
+        <div class="ck-course-thumb">
+          <div class="ckt-inner">
+            <svg width="24" height="17" viewBox="0 0 32 22" fill="none"><rect width="32" height="22" rx="4" fill="#FF0000"/><polygon points="12,6 12,16 22,11" fill="white"/></svg>
+          </div>
+        </div>
+        <div class="ck-course-info">
+          <p class="ck-course-title">{{ order.title }}</p>
+          <span class="ck-course-meta">{{ order.lessons }} Lessons · {{ order.hours }} Hours</span>
+        </div>
+        <span class="ck-course-price">₹{{ order.price.toLocaleString('en-IN') }}</span>
+      </div>
+
+      <div class="ck-totals">
+        <div class="ck-row"><span>Subtotal</span><span>₹{{ order.originalPrice.toLocaleString('en-IN') }}</span></div>
+        <div class="ck-row ck-discount"><span>Discount (40%)</span><span>-₹{{ order.discount.toLocaleString('en-IN') }}</span></div>
+        <div class="ck-divider"></div>
+        <div class="ck-row ck-total"><span>Total</span><span>₹{{ total.toLocaleString('en-IN') }}</span></div>
+      </div>
+
+      <div class="ck-coupon-section">
+        <p class="ck-coupon-label">Have a coupon code?</p>
+        <div class="ck-coupon-row">
+          <input type="text" placeholder="Enter coupon code" class="ck-coupon-input" [value]="coupon()" (input)="coupon.set($any($event.target).value)" />
+          <button class="btn-apply" (click)="applyCoupon()">Apply</button>
+        </div>
+        @if (couponApplied()) {
+          <p class="coupon-success">✓ Coupon applied!</p>
+        }
+        @if (couponError()) {
+          <p class="coupon-error">{{ couponError() }}</p>
+        }
+      </div>
+    </div>
+
+    <!-- Billing Details -->
+    <div class="ck-billing">
+      <h2>Billing Details</h2>
+
+      <div class="ck-field">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your full name" [(ngModel)]="form.fullName" />
+      </div>
+      <div class="ck-field">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" [(ngModel)]="form.email" />
+      </div>
+      <div class="ck-field">
+        <label>Phone Number</label>
+        <div class="phone-row">
+          <span class="phone-prefix">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="none"><rect width="18" height="4" fill="#FF9933"/><rect y="4" width="18" height="4" fill="white"/><rect y="8" width="18" height="4" fill="#138808"/><circle cx="9" cy="6" r="1.8" stroke="#000080" stroke-width="0.8" fill="none"/></svg>
+            +91
+          </span>
+          <input type="tel" placeholder="Enter your phone number" [(ngModel)]="form.phone" />
+        </div>
+      </div>
+      <div class="ck-field">
+        <label>Country</label>
+        <select [(ngModel)]="form.country">
+          @for (c of countries; track c) {
+            <option [value]="c">{{ c }}</option>
+          }
+        </select>
+      </div>
+
+      <a routerLink="/payment" class="btn-continue">Continue to Payment</a>
+    </div>
+  </div>
+</div>

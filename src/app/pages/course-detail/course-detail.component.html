@@ -1,0 +1,132 @@
+<app-navbar></app-navbar>
+
+<div class="cd-page">
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a routerLink="/courses">Courses</a>
+    <span class="bc-sep">›</span>
+    <span>YouTube Success Blueprint</span>
+  </div>
+
+  <!-- Main Hero -->
+  <div class="cd-hero">
+    <!-- Thumbnail -->
+    <div class="cd-thumb">
+      <div class="cdt-inner">
+        <div class="cdt-bars">
+          <div class="bar b1"></div><div class="bar b2"></div><div class="bar b3"></div><div class="bar b4"></div>
+        </div>
+        <div class="cdt-play">
+          <svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#FF0000" opacity="0.9"/><polygon points="19,14 19,34 36,24" fill="white"/></svg>
+        </div>
+        <div class="cdt-arrow"></div>
+        <div class="cdt-glow"></div>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="cd-info">
+      <h1 class="cd-title">{{ course.title }}</h1>
+      <p class="cd-desc">{{ course.description }}</p>
+      <div class="cd-meta">
+        <span class="cd-meta-item">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#666" stroke-width="1.5"/><path d="M8 4.5V8.5l2.5 1.5" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+          {{ course.lessons }} Lessons
+        </span>
+        <span class="cd-meta-item">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#666" stroke-width="1.5"/><path d="M8 4.5V8.5l2.5 1.5" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+          {{ course.hours }} Hours
+        </span>
+        <span class="cd-meta-item">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#666" stroke-width="1.5"/><path d="M5 7h6M5 10h4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+          {{ course.level }}
+        </span>
+      </div>
+      <div class="cd-rating">
+        <span class="cd-stars">★★★★★</span>
+        <span class="cd-rating-num">{{ course.rating }}</span>
+        <span class="cd-reviews">({{ course.reviews }})</span>
+      </div>
+      <div class="cd-price-row">
+        <span class="cd-price">₹{{ course.price.toLocaleString('en-IN') }}</span>
+        <span class="cd-orig-price">₹{{ course.originalPrice.toLocaleString('en-IN') }}</span>
+        <span class="cd-badge-off">{{ course.discount }}% OFF</span>
+      </div>
+      <a routerLink="/checkout" class="btn-cd-buy">Buy Now</a>
+      <button class="btn-cd-cart">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2h1.4l1.9 7.5h6.4l1.3-5H5" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="13" r="1" fill="#333"/><circle cx="11" cy="13" r="1" fill="#333"/></svg>
+        Add to Cart
+      </button>
+      <div class="cd-guarantee">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#22c55e" opacity="0.15"/><path d="M5 8.5l2 2 4-4" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        30-Day Money Back Guarantee
+      </div>
+    </div>
+  </div>
+
+  <!-- Details Grid -->
+  <div class="cd-details-grid">
+    <!-- What you'll learn -->
+    <div class="cd-learn-box">
+      <h3>What you'll learn</h3>
+      <ul class="cd-learn-list">
+        @for (item of whatYoullLearn; track item) {
+          <li>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3 3 6-6" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            {{ item }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <!-- This course includes -->
+    <div class="cd-includes-box">
+      <h3>This course includes</h3>
+      <ul class="cd-includes-list">
+        @for (item of courseIncludes; track item.text) {
+          <li>
+            @if (item.svg === 'play') {
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#FF0000" stroke-width="1.5"/><polygon points="6,5 6,11 12,8" fill="#FF0000"/></svg>
+            }
+            @if (item.svg === 'clock') {
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#FF0000" stroke-width="1.5"/><path d="M8 4.5V8.5l2.5 1.5" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round"/></svg>
+            }
+            @if (item.svg === 'mobile') {
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="1" width="7" height="14" rx="1.5" stroke="#FF0000" stroke-width="1.5"/><circle cx="8" cy="12.5" r="0.8" fill="#FF0000"/></svg>
+            }
+            @if (item.svg === 'cert') {
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="3" width="13" height="9" rx="1.5" stroke="#FF0000" stroke-width="1.5"/><path d="M4 7h5M4 9.5h3" stroke="#FF0000" stroke-width="1.2" stroke-linecap="round"/><circle cx="12" cy="11" r="2.5" fill="white" stroke="#FF0000" stroke-width="1.2"/></svg>
+            }
+            @if (item.svg === 'users') {
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="5" r="2.5" stroke="#FF0000" stroke-width="1.5"/><path d="M1.5 13c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="5" r="2" stroke="#FF0000" stroke-width="1.3"/><path d="M14.5 13c0-2-1.3-3.2-2.5-3.5" stroke="#FF0000" stroke-width="1.3" stroke-linecap="round"/></svg>
+            }
+            {{ item.text }}
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- You might also like -->
+  <div class="cd-related">
+    <h3>You might also like</h3>
+    <div class="cd-related-grid">
+      @for (rc of relatedCourses; track rc.id) {
+        <a [routerLink]="['/course', rc.id]" class="rc-card">
+          <div class="rc-thumb" [class]="'rc-thumb-' + rc.thumb">
+            <svg width="32" height="22" viewBox="0 0 32 22" fill="none"><rect width="32" height="22" rx="4" fill="#FF0000"/><polygon points="12,6 12,16 22,11" fill="white"/></svg>
+          </div>
+          <div class="rc-info">
+            <p class="rc-title">{{ rc.title }}</p>
+            <div class="rc-price-row">
+              <span class="rc-price">₹{{ rc.price.toLocaleString('en-IN') }}</span>
+              <span class="rc-orig">₹{{ rc.originalPrice.toLocaleString('en-IN') }}</span>
+            </div>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

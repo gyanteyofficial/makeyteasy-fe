@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<div class="ps-page">
+  <div class="ps-card">
+    <!-- Success icon -->
+    <div class="ps-icon-wrap">
+      <div class="ps-circle">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="22" fill="#22c55e" opacity="0.15"/>
+          <circle cx="24" cy="24" r="22" stroke="#22c55e" stroke-width="2"/>
+          <path d="M14 24l7 7 13-13" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <!-- Confetti dots -->
+      <div class="confetti c1"></div>
+      <div class="confetti c2"></div>
+      <div class="confetti c3"></div>
+      <div class="confetti c4"></div>
+      <div class="confetti c5"></div>
+      <div class="confetti c6"></div>
+    </div>
+
+    <h1 class="ps-heading">Payment Successful!</h1>
+    <p class="ps-subheading">Congratulations! You have successfully purchased the course.</p>
+
+    <div class="ps-order-box">
+      <h3>Order Details</h3>
+      <div class="ps-order-table">
+        <div class="ps-order-row"><span class="ps-label">Course</span><span class="ps-value">{{ order.course }}</span></div>
+        <div class="ps-order-row"><span class="ps-label">Order ID</span><span class="ps-value mono">{{ order.orderId }}</span></div>
+        <div class="ps-order-row"><span class="ps-label">Amount Paid</span><span class="ps-value fw-bold">{{ order.amount }}</span></div>
+        <div class="ps-order-row"><span class="ps-label">Payment Method</span><span class="ps-value">{{ order.method }}</span></div>
+        <div class="ps-order-row"><span class="ps-label">Date</span><span class="ps-value">{{ order.date }}</span></div>
+      </div>
+    </div>
+
+    <div class="ps-actions">
+      <a routerLink="/my-courses" class="btn-my-courses">Go to My Courses</a>
+      <a routerLink="/courses" class="btn-continue-shop">Continue Shopping</a>
+    </div>
+
+    <p class="ps-receipt-note">A receipt has been sent to your email.</p>
+  </div>
+</div>
