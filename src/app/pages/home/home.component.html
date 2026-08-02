@@ -1,0 +1,141 @@
+<app-navbar></app-navbar>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <span class="hero-label">YOUTUBE VIDEOS</span>
+      <h1 class="hero-title">
+        Learn, Create,<br>
+        Grow on <span class="text-red">YouTube</span>
+      </h1>
+      <p class="hero-desc">
+        Watch our latest videos to learn step-by-step tutorials,
+        tips, and strategies to grow your channel and create
+        amazing content.
+      </p>
+      <div class="hero-actions">
+        <a href="#" class="btn-red">
+          <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+            <rect width="20" height="14" rx="3" fill="white"/>
+            <polygon points="8,3.5 8,10.5 14.5,7" fill="#FF0000"/>
+          </svg>
+          Subscribe
+        </a>
+        <a href="#" class="btn-outline">
+          Visit Channel
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+            <path d="M2 2H12V12" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 2L2 12" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-img-wrapper">
+        <svg class="deco-arrow deco-arrow-1" width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <path d="M10 50 Q30 10 50 30" stroke="#FF0000" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+          <polygon points="46,35 54,28 50,38" fill="#FF0000"/>
+        </svg>
+        <div class="laptop-mockup">
+          <div class="laptop-screen">
+            <div class="yt-player-bg">
+              <div class="yt-sidebar">
+                <div class="yt-thumb" style="background:#222"></div>
+                <div class="yt-thumb" style="background:#333"></div>
+                <div class="yt-thumb" style="background:#222"></div>
+              </div>
+              <div class="yt-main">
+                <div class="yt-play-btn">
+                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="18" r="18" fill="rgba(255,255,255,0.15)"/>
+                    <circle cx="18" cy="18" r="13" fill="#FF0000"/>
+                    <polygon points="14,12 14,24 26,18" fill="white"/>
+                  </svg>
+                </div>
+                <div class="yt-bar"></div>
+              </div>
+            </div>
+          </div>
+          <div class="laptop-base-bar"></div>
+        </div>
+        <div class="camera-mockup">
+          <div class="camera-body">
+            <div class="camera-lens">
+              <div class="camera-lens-inner"></div>
+            </div>
+          </div>
+          <div class="camera-tripod">
+            <div class="tripod-leg leg-left"></div>
+            <div class="tripod-leg leg-right"></div>
+          </div>
+        </div>
+        <div class="mic-mockup">
+          <div class="mic-head"></div>
+          <div class="mic-stand"></div>
+        </div>
+        <div class="yt-logo-float">
+          <svg width="52" height="36" viewBox="0 0 52 36" fill="none">
+            <rect width="52" height="36" rx="8" fill="#FF0000"/>
+            <polygon points="20,10 20,26 36,18" fill="white"/>
+          </svg>
+        </div>
+        <div class="plant-mockup">
+          <div class="plant-leaves">
+            <div class="leaf leaf-1"></div>
+            <div class="leaf leaf-2"></div>
+            <div class="leaf leaf-3"></div>
+          </div>
+          <div class="plant-pot"></div>
+        </div>
+        <svg class="paper-plane" width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M2 20 L38 5 L28 35 L18 22 Z" stroke="#333" stroke-width="1.5" fill="none"/>
+          <path d="M18 22 L22 32 L28 35" stroke="#333" stroke-width="1.5" fill="none"/>
+          <path d="M18 22 L38 5" stroke="#333" stroke-width="1.5"/>
+        </svg>
+        <svg class="person-doodle" width="50" height="70" viewBox="0 0 50 70" fill="none">
+          <circle cx="25" cy="12" r="10" stroke="#333" stroke-width="1.5" fill="none"/>
+          <path d="M10 30 Q25 25 40 30 L38 55 L25 50 L12 55 Z" stroke="#333" stroke-width="1.5" fill="none"/>
+          <path d="M25 50 L22 68" stroke="#333" stroke-width="1.5"/>
+          <path d="M25 50 L28 68" stroke="#333" stroke-width="1.5"/>
+          <path d="M10 30 L5 48" stroke="#333" stroke-width="1.5"/>
+          <path d="M40 30 L45 48" stroke="#333" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest Videos Section -->
+<section class="videos-section">
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title"><span class="title-underline">Latest Videos</span></h2>
+      <a href="#" class="view-all">View all videos →</a>
+    </div>
+    <div class="videos-grid">
+      @for (video of videos; track video.id) {
+        <div class="video-card">
+          <div class="video-thumb" [class]="'thumb-' + video.thumbStyle">
+            <div class="thumb-content">
+              <div class="thumb-label">{{ video.thumbLabel }}</div>
+            </div>
+            <div class="thumb-overlay">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="10" fill="rgba(255,255,255,0.2)"/>
+                <polygon points="8,6 8,14 15,10" fill="white"/>
+              </svg>
+            </div>
+            <span class="video-duration">{{ video.duration }}</span>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">{{ video.title }}</h3>
+            <p class="video-meta">{{ video.views }} • {{ video.timeAgo }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

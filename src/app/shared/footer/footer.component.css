@@ -1,0 +1,90 @@
+.footer {
+  background: #111;
+  color: #ccc;
+  padding: 52px 0 0;
+}
+
+.footer-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.footer-col h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 18px;
+  letter-spacing: 0.1px;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-col ul li a {
+  font-size: 14px;
+  color: #999;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-col ul li a:hover,
+.footer-col ul li a.footer-active {
+  color: #FF0000;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #999 !important;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.social-link:hover {
+  color: #fff !important;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.linkedin-icon { background: #0077b5; color: #fff; }
+.yt-icon { background: transparent; }
+.github-icon { background: #333; color: #fff; }
+.x-icon { background: #000; color: #fff; font-size: 13px; border: 1px solid #444; }
+.fb-icon { background: #1877f2; color: #fff; font-size: 14px; font-weight: 700; }
+
+.footer-bottom {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: #666;
+}
