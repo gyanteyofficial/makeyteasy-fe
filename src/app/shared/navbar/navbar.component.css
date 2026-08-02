@@ -49,9 +49,13 @@
   transition: color 0.15s;
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
+.nav-links li a:hover {
   color: #111;
+}
+
+.nav-links li a.active {
+  color: #FF0000;
+  font-weight: 600;
 }
 
 .nav-links li a.yt-link {
